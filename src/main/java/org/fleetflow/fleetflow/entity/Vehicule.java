@@ -26,5 +26,4 @@ public class Vehicule {
     @OneToMany(mappedBy = "vehicule")
     private List<Livraison> livraisons;
 
-
 }
