@@ -10,4 +10,5 @@ import java.util.List;
 public interface ChauffeurRepository extends JpaRepository<Chauffeur,Long> {
 
     List<Chauffeur> findByAvailableTrue();
+public interface ChauffeurRepository {
 }
