@@ -19,6 +19,9 @@ private String email;
 private String telephone;
 private String ville;
 
+
+
+
 @OneToMany(mappedBy = "client")
 private List<Livraison> livraisons;
 }
