@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 public class Vehicule {
     @Id
-    @GeneratedValue (GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String matricule;

@@ -1,4 +1,4 @@
 package org.fleetflow.fleetflow.repository;
 
-public class ChauffeurRepository {
+public interface ChauffeurRepository {
 }
