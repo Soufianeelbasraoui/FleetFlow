@@ -15,9 +15,11 @@ public class Chauffeu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nom;
     private String telephone;
+
+
+
 
     @OneToMany(mappedBy = "chauffeur")
     private List<Livraison> liveries;
