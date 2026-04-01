@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface VehiculeRepository extends JpaRepository<Vehicule,Long> {
-    List<Vehicule> findByStatus(String status);
+    List<Vehicule> findByStatutVehicule(String statutVehicule);
 
-    List<Vehicule> findByCapacityGreaterThan(Double capacity);
+    List<Vehicule> findByCapaciteGreaterThan(Double capacite);
 
 }
