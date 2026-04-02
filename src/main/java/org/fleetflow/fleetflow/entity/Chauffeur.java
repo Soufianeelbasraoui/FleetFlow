@@ -18,6 +18,7 @@ public class Chauffeur {
     private Long id;
     private String nom;
     private String telephone;
+    private String licenseType;
     private Boolean available;
 
     @OneToMany(mappedBy = "chauffeur")

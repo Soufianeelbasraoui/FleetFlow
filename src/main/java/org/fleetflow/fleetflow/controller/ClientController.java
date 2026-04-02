@@ -31,7 +31,6 @@ public class ClientController {
     public ResponseEntity<ClientDTO> modifier(@PathVariable Long id, @RequestBody ClientDTO dto) {
         return ResponseEntity.ok(clientService.modifierClient(id, dto));
     }
-
     @DeleteMapping("/{id}")
     @Operation(summary = "Supprimer un client")
     public ResponseEntity<Void> supprimer(@PathVariable Long id) {
