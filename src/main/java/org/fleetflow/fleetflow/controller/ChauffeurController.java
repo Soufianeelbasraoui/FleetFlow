@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController   // <-- important!
 public class ChauffeurController {
 
-    @GetMapping("/chauffeur")   // <-- give it a path
+    @GetMapping("/chauffeur")
     public String chauffeur() {
         return "Chauffeur";
     }
