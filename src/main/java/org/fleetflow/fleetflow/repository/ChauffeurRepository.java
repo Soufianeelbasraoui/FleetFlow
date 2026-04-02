@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ChauffeurRepository extends JpaRepository<Chauffeur,Long> {
+public interface ChauffeurRepository extends JpaRepository<Chauffeur, Long> {
 
     List<Chauffeur> findByAvailableTrue();
-
 }

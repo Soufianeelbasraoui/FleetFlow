@@ -2,9 +2,7 @@ package org.fleetflow.fleetflow.mapper;
 
 import org.fleetflow.fleetflow.dto.ChauffeurDTO;
 import org.fleetflow.fleetflow.entity.Chauffeur;
-import org.mapstruct.Mapper;
-
-import java.util.List;
+import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")
 public interface ChauffeurMapper {
@@ -13,7 +11,6 @@ public interface ChauffeurMapper {
 
     Chauffeur toEntity(ChauffeurDTO dto);
 
-    List<ChauffeurDTO> toDTOList(List<Chauffeur> chauffeurs);
-
-    List<Chauffeur> toEntityList(List<ChauffeurDTO> dtos);
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateEntityFromDTO(ChauffeurDTO dto, @MappingTarget Chauffeur chauffeur);
 }

@@ -1,4 +1,58 @@
 package org.fleetflow.fleetflow.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
+import org.fleetflow.fleetflow.dto.VehiculeDTO;
+import org.fleetflow.fleetflow.service.VehiculeService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/vehicules")
+@RequiredArgsConstructor
+@Tag(name = "Gestion des Véhicules")
 public class VehiculeController {
+
+    private final VehiculeService vehiculeService;
+
+    @PostMapping
+    @Operation(summary = "Ajouter un véhicule")
+    public ResponseEntity<VehiculeDTO> ajouter(@RequestBody VehiculeDTO dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(vehiculeService.ajouterVehicule(dto));
+    }
+
+    @PutMapping("/{id}")
+    @Operation(summary = "Modifier un véhicule")
+    public ResponseEntity<VehiculeDTO> modifier(@PathVariable Long id, @RequestBody VehiculeDTO dto) {
+        return ResponseEntity.ok(vehiculeService.modifierVehicule(id, dto));
+    }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Supprimer un véhicule")
+    public ResponseEntity<Void> supprimer(@PathVariable Long id) {
+        vehiculeService.supprimerVehicule(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping
+    @Operation(summary = "Lister tous les véhicules")
+    public ResponseEntity<List<VehiculeDTO>> lister() {
+        return ResponseEntity.ok(vehiculeService.listerVehicules());
+    }
+
+    @GetMapping("/statut/{statut}")
+    @Operation(summary = "Lister par statut")
+    public ResponseEntity<List<VehiculeDTO>> parStatut(@PathVariable String statut) {
+        return ResponseEntity.ok(vehiculeService.listerParStatut(statut));
+    }
+
+    @GetMapping("/capacite")
+    @Operation(summary = "Lister par capacité minimale")
+    public ResponseEntity<List<VehiculeDTO>> parCapacite(@RequestParam int min) {
+        return ResponseEntity.ok(vehiculeService.listerParCapaciteSuperieure(min));
+    }
 }

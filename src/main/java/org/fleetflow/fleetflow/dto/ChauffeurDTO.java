@@ -1,22 +1,26 @@
+// ChauffeurRequestDTO.java
 package org.fleetflow.fleetflow.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder
-    public class ChauffeurDTO {
+@Data
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ChauffeurDTO {
 
-        private Long id;
+    @NotBlank(message = "Le nom est obligatoire")
+    private String nom;
 
-        private String name;
-        private String phoneNumber;
-        private String licenseType;
+    @NotBlank(message = "Le téléphone est obligatoire")
+    private String telephone;
 
-        private Boolean available;
-    }
+    @NotBlank(message = "Le type de permis est obligatoire")
+    private String licenseType;
 
+    @NotNull(message = "La disponibilité est obligatoire")
+    private Boolean available;
+}
