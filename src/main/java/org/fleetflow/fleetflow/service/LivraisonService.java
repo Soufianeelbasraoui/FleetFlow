@@ -31,7 +31,7 @@ public class LivraisonService {
         return livraisonMapper.toDTO(livraisonRepository.save(livraison));
     }
 
-    // Assign driver and vehicle to an existing delivery
+
     public LivraisonDTO assignerChauffeurEtVehicule(Long id, Long chauffeurId, Long vehiculeId) {
         Livraison livraison = livraisonRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Livraison introuvable avec l'id : " + id));
@@ -40,7 +40,7 @@ public class LivraisonService {
                 .orElseThrow(() -> new EntityNotFoundException("Chauffeur introuvable avec l'id : " + chauffeurId));
 
         Vehicule vehicule = vehiculeRepository.findById(vehiculeId)
-                .orElseThrow(() -> new EntityNotFoundException("VÃ©hicule introuvable avec l'id : " + vehiculeId));
+                .orElseThrow(() -> new EntityNotFoundException("Vahicule introuvable avec l'id : " + vehiculeId));
 
         livraison.setChauffeur(chauffeur);
         livraison.setVehicule(vehicule);
@@ -48,7 +48,7 @@ public class LivraisonService {
         return livraisonMapper.toDTO(livraisonRepository.save(livraison));
     }
 
-    // Change delivery status
+
     public LivraisonDTO changerStatut(Long id, String statut) {
         Livraison livraison = livraisonRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Livraison introuvable avec l'id : " + id));

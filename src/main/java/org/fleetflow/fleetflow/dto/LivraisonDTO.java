@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LivraisonDTO {
-    private Long id;
+
     private LocalDate dateLivraison;
     private String adresseDepart;
     private String adresseDestination;

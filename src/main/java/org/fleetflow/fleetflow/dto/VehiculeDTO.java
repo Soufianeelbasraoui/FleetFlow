@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class VehiculeDTO {
-    private Long id;
+
     private String matricule;
     private String TypeVehicule;
     private int capacite;
