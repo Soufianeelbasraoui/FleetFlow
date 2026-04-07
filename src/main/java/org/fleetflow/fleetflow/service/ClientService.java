@@ -38,15 +38,11 @@ public class ClientService {
         clientRepository.deleteById(id);
     }
 
-    //
-//    public List<ClientDTO> listerClients() {
-//        return clientRepository.findAll()
-//                .stream()
-//                .map(clientMapper::toDTO)
-//                .collect(Collectors.toList());
-//    }
     public List<ClientDTO> listerClients() {
-        return clientMapper.toDtoList(clientRepository.findAll());
+        return clientRepository.findAll()
+                .stream()
+                .map(clientMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     public ClientDTO getClientById(Long id) {
@@ -54,5 +50,4 @@ public class ClientService {
                 .orElseThrow(() -> new EntityNotFoundException("Client introuvable avec l'id : " + id));
         return clientMapper.toDTO(client);
     }
-
 }
