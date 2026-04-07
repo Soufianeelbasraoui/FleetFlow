@@ -3,6 +3,7 @@ package org.fleetflow.fleetflow.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.fleetflow.fleetflow.dto.ClientDTO;
 import org.fleetflow.fleetflow.service.ClientService;
@@ -22,13 +23,13 @@ public class ClientController {
 
     @PostMapping
     @Operation(summary = "Ajouter un client")
-    public ResponseEntity<ClientDTO> ajouter(@RequestBody ClientDTO dto) {
+    public ResponseEntity<ClientDTO> ajouter(@Valid @RequestBody ClientDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(clientService.ajouterClient(dto));
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Modifier un client")
-    public ResponseEntity<ClientDTO> modifier(@PathVariable Long id, @RequestBody ClientDTO dto) {
+    public ResponseEntity<ClientDTO> modifier(@Valid @PathVariable Long id, @RequestBody ClientDTO dto) {
         return ResponseEntity.ok(clientService.modifierClient(id, dto));
     }
     @DeleteMapping("/{id}")

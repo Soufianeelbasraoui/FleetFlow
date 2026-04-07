@@ -22,13 +22,13 @@ public class VehiculeController {
 
     @PostMapping
     @Operation(summary = "Ajouter un véhicule")
-    public ResponseEntity<VehiculeDTO> ajouter(@RequestBody VehiculeDTO dto) {
+    public ResponseEntity<VehiculeDTO> ajouter(@Valid @RequestBody VehiculeDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(vehiculeService.ajouterVehicule(dto));
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Modifier un véhicule")
-    public ResponseEntity<VehiculeDTO> modifier(@PathVariable Long id, @Valid @RequestBody VehiculeDTO dto) {
+    public ResponseEntity<VehiculeDTO> modifier(@Valid  @PathVariable Long id,@RequestBody VehiculeDTO dto) {
         return ResponseEntity.ok(vehiculeService.modifierVehicule(id, dto));
     }
 
@@ -45,6 +45,8 @@ public class VehiculeController {
         return ResponseEntity.ok(vehiculeService.listerVehicules());
     }
 
+
+
     @GetMapping("/statut/{statut}")
     @Operation(summary = "Lister par statut")
     public ResponseEntity<List<VehiculeDTO>> parStatut(@PathVariable String statut) {
@@ -53,7 +55,7 @@ public class VehiculeController {
 
     @GetMapping("/capacite")
     @Operation(summary = "Lister par capacité minimale")
-    public ResponseEntity<List<VehiculeDTO>> parCapacite(@RequestParam int min) {
+    public ResponseEntity<List<VehiculeDTO>> parCapacite( @RequestParam int min) {
         return ResponseEntity.ok(vehiculeService.listerParCapaciteSuperieure(min));
     }
 }

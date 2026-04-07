@@ -2,7 +2,9 @@ package org.fleetflow.fleetflow.dto;
 
 import lombok.*;
 
-@Data
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

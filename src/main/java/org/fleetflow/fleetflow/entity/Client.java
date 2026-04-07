@@ -7,7 +7,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "Client")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Client {
