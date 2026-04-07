@@ -10,9 +10,9 @@ import lombok.*;
 public class VehiculeDTO {
     private Long id;
     private String matricule;
-    private String TypeVehicule;
+    private String typeVehicule;
     private int capacite;
-    private String StatutVehicule;
+    private String statutVehicule;
     private String permisType;
     private Boolean disponible;
 }
