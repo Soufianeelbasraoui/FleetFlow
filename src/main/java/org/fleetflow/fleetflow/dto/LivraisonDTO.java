@@ -25,8 +25,8 @@ public class LivraisonDTO {
     private String statut;
     @NotNull(message = "id client est obligatoire")
     private Long clientId;
-    @NotBlank(message = "chauffeur id obligatoire")
+    @NotNull(message = "chauffeur id obligatoire")
     private Long chauffeurId;
-    @NotBlank(message = "vehicule id est obigatoire")
+    @NotNull(message = "vehicule id est obigatoire")
     private Long vehiculeId;
 }

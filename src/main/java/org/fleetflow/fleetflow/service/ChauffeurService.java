@@ -37,17 +37,22 @@ public class ChauffeurService {
         chauffeurRepository.deleteById(id);
     }
 
-    public List<ChauffeurDTO> listerChauffeurs() {
-        return chauffeurRepository.findAll()
-                .stream()
-                .map(chauffeurMapper::toDTO)
-                .collect(Collectors.toList());
+//    public List<ChauffeurDTO> listerChauffeurs1() {
+//        return chauffeurRepository.findAll()
+//                .stream()
+//                .map(chauffeurMapper::toDTO)
+//                .collect(Collectors.toList());
+//    }
+    public List<ChauffeurDTO> listerChauffeurs(){
+        return chauffeurMapper.toDtoList(chauffeurRepository.findAll());
     }
-
-    public List<ChauffeurDTO> listerChauffeursDisponibles() {
-        return chauffeurRepository.findByAvailableTrue()
-                .stream()
-                .map(chauffeurMapper::toDTO)
-                .collect(Collectors.toList());
-    }
+//    public List<ChauffeurDTO> listerChauffeursDisponibles() {
+//        return chauffeurRepository.findByAvailableTrue()
+//                .stream()
+//                .map(chauffeurMapper::toDTO)
+//                .collect(Collectors.toList());
+//    }
+public List<ChauffeurDTO> listerChauffeursDisponibles(){
+        return chauffeurMapper.toDtoList(chauffeurRepository.findByAvailableTrue());
+}
 }

@@ -12,7 +12,7 @@ public interface VehiculeMapper {
     @Mapping(target = "typeVehicule", source = "typeVehicule")
     @Mapping(target = "statutVehicule", source = "statutVehicule")
     VehiculeDTO toDTO(Vehicule vehicule);
-
+    List<VehiculeDTO> toDtoList(List<Vehicule> vehicules);
     @Mapping(target = "typeVehicule", source = "typeVehicule")
     @Mapping(target = "statutVehicule", source = "statutVehicule")
     Vehicule toEntity(VehiculeDTO dto);
