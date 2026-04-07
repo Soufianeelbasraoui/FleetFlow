@@ -51,10 +51,12 @@ public class VehiculeService {
                 .collect(Collectors.toList());
     }
 
+
     public List<VehiculeDTO> listerParCapaciteSuperieure(int capacite) {
         return vehiculeRepository.findByCapaciteGreaterThan(capacite)
                 .stream()
                 .map(vehiculeMapper::toDTO)
                 .collect(Collectors.toList());
     }
+
 }

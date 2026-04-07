@@ -40,14 +40,13 @@ public class LivraisonService {
                 .orElseThrow(() -> new EntityNotFoundException("Chauffeur introuvable avec l'id : " + chauffeurId));
 
         Vehicule vehicule = vehiculeRepository.findById(vehiculeId)
-                .orElseThrow(() -> new EntityNotFoundException("Vahicule introuvable avec l'id : " + vehiculeId));
+                .orElseThrow(() -> new EntityNotFoundException("VÃ©hicule introuvable avec l'id : " + vehiculeId));
 
         livraison.setChauffeur(chauffeur);
         livraison.setVehicule(vehicule);
 
         return livraisonMapper.toDTO(livraisonRepository.save(livraison));
     }
-
 
     public LivraisonDTO changerStatut(Long id, String statut) {
         Livraison livraison = livraisonRepository.findById(id)
@@ -83,6 +82,10 @@ public class LivraisonService {
                 .map(livraisonMapper::toDTO)
                 .collect(Collectors.toList());
     }
+
+//    public List<LivraisonDTO> listerEntreDeuxDates(LocalDate debut,LocalDate fin){
+//        return livraisonMapper.toDtoList(livraisonRepository.findByDateLivraisonBetween(debut,fin));
+//    }
 
     public List<LivraisonDTO> listerParVilleDestination(String ville) {
         return livraisonRepository.findByVilleDestination(ville)
