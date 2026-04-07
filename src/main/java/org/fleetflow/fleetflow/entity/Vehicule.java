@@ -4,16 +4,15 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-
 @Entity
 @Data
-@Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class Vehicule {
+
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String matricule;
@@ -25,5 +24,4 @@ public class Vehicule {
 
     @OneToMany(mappedBy = "vehicule")
     private List<Livraison> livraisons;
-
 }
