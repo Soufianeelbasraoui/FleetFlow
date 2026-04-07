@@ -22,13 +22,13 @@ public class VehiculeController {
 
     @PostMapping
     @Operation(summary = "Ajouter un véhicule")
-    public ResponseEntity<VehiculeDTO> ajouter(@RequestBody VehiculeDTO dto) {
+    public ResponseEntity<VehiculeDTO> ajouter(@Valid @RequestBody VehiculeDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(vehiculeService.ajouterVehicule(dto));
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Modifier un véhicule")
-    public ResponseEntity<VehiculeDTO> modifier(@PathVariable Long id, @Valid @RequestBody VehiculeDTO dto) {
+    public ResponseEntity<VehiculeDTO> modifier(@Valid @PathVariable Long id, @Valid @RequestBody VehiculeDTO dto) {
         return ResponseEntity.ok(vehiculeService.modifierVehicule(id, dto));
     }
 

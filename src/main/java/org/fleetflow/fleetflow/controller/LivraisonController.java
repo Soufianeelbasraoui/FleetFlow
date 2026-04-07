@@ -3,6 +3,7 @@ package org.fleetflow.fleetflow.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.fleetflow.fleetflow.dto.LivraisonDTO;
 import org.fleetflow.fleetflow.service.LivraisonService;
@@ -24,13 +25,14 @@ public class LivraisonController {
 
     @PostMapping
     @Operation(summary = "Créer une livraison")
-    public ResponseEntity<LivraisonDTO> creer(@RequestBody LivraisonDTO dto) {
+    public ResponseEntity<LivraisonDTO> creer(@Valid  @RequestBody LivraisonDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(livraisonService.creerLivraison(dto));
     }
 
     @PutMapping("/{id}/assigner")
     @Operation(summary = "Assigner un chauffeur et un véhicule")
     public ResponseEntity<LivraisonDTO> assigner(
+            @Valid
             @PathVariable Long id,
             @RequestParam Long chauffeurId,
             @RequestParam Long vehiculeId) {
