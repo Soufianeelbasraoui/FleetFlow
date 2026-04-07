@@ -4,6 +4,8 @@ import org.fleetflow.fleetflow.dto.VehiculeDTO;
 import org.fleetflow.fleetflow.entity.Vehicule;
 import org.mapstruct.*;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface VehiculeMapper {
 

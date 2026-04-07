@@ -83,6 +83,10 @@ public class LivraisonService {
                 .collect(Collectors.toList());
     }
 
+//    public List<LivraisonDTO> listerEntreDeuxDates(LocalDate debut,LocalDate fin){
+//        return livraisonMapper.toDtoList(livraisonRepository.findByDateLivraisonBetween(debut,fin));
+//    }
+
     public List<LivraisonDTO> listerParVilleDestination(String ville) {
         return livraisonRepository.findByVilleDestination(ville)
                 .stream()
