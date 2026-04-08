@@ -49,7 +49,7 @@ public List<LivraisonDTO> listerLivraisons(){
 }
 
 public List<LivraisonDTO> listerParStatut(String statut){
-        return livraisonMapper.toDtoList(livraisonRepository.findByVilleDestination(statut));
+        return livraisonMapper.toDtoList(livraisonRepository.findByStatut(statut));
 }
 
     public List<LivraisonDTO> listerParClient(Long clientId){
@@ -63,4 +63,6 @@ public List<LivraisonDTO> listerParStatut(String statut){
     public List<LivraisonDTO> listerParVilleDestination(String ville){
       return livraisonMapper.toDtoList(livraisonRepository.findByVilleDestination(ville));
     }
+
+
 }

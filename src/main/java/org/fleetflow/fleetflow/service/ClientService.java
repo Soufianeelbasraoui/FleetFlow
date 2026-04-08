@@ -38,13 +38,9 @@ public class ClientService {
         clientRepository.deleteById(id);
     }
 
-    public List<ClientDTO> listerClients() {
-        return clientRepository.findAll()
-                .stream()
-                .map(clientMapper::toDTO)
-                .collect(Collectors.toList());
-    }
-
+public List<ClientDTO> listerClients(){
+        return clientMapper.toDtoList(clientRepository.findAll());
+}
     public ClientDTO getClientById(Long id) {
         Client client = clientRepository.findById(id).orElse(null);
         return clientMapper.toDTO(client);

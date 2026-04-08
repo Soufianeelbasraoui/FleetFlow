@@ -13,7 +13,7 @@ import java.util.List;
 public interface ClientMapper {
 
     ClientDTO toDTO(Client client);
-  List<ClientDTO> toDtoList(List<Client> clients);
+    List<ClientDTO> toDtoList(List<Client> clients);
     Client toEntity(ClientDTO dto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

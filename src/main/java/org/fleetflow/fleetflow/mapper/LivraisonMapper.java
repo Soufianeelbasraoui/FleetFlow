@@ -13,7 +13,7 @@ public interface LivraisonMapper {
     @Mapping(source = "chauffeur.id", target = "chauffeurId")
     @Mapping(source = "vehicule.id",  target = "vehiculeId")
     LivraisonDTO toDTO(Livraison livraison);
-   List<LivraisonDTO> toDtoList(List<Livraison> livraisons);
+    List<LivraisonDTO> toDtoList(List<Livraison> livraisons);
     @Mapping(source = "clientId",    target = "client.id")
     @Mapping(source = "chauffeurId", target = "chauffeur.id")
     @Mapping(source = "vehiculeId",  target = "vehicule.id")
