@@ -1,4 +1,3 @@
-
 package org.fleetflow.fleetflow.service;
 
 import lombok.RequiredArgsConstructor;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -46,7 +44,6 @@ public class LivraisonService {
         return livraisonMapper.toDTO(livraisonRepository.save(livraison));
     }
 
-
 public List<LivraisonDTO> listerLivraisons(){
         return livraisonMapper.toDtoList(livraisonRepository.findAll());
 }
@@ -58,7 +55,6 @@ public List<LivraisonDTO> listerParStatut(String statut){
     public List<LivraisonDTO> listerParClient(Long clientId){
         return livraisonMapper.toDtoList(livraisonRepository.findByClientId(clientId));
     }
-
 
     public List<LivraisonDTO> listerEntreDeuxDates(LocalDate debut,LocalDate fin){
         return livraisonMapper.toDtoList(livraisonRepository.findByDateLivraisonBetween(debut,fin));

@@ -1,4 +1,3 @@
-
 package org.fleetflow.fleetflow.service;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -7,6 +6,7 @@ import org.fleetflow.fleetflow.dto.ClientDTO;
 import org.fleetflow.fleetflow.entity.Client;
 import org.fleetflow.fleetflow.mapper.ClientMapper;
 import org.fleetflow.fleetflow.repository.ClientRepository;
+import org.fleetflow.fleetflow.repository.LivraisonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +18,7 @@ public class ClientService {
 
     private final ClientRepository clientRepository;
     private final ClientMapper clientMapper;
+    private  final LivraisonRepository livraisonRepository;
 
     public ClientDTO ajouterClient(ClientDTO dto) {
         Client client = clientMapper.toEntity(dto);
@@ -25,8 +26,7 @@ public class ClientService {
     }
 
     public ClientDTO modifierClient(Long id, ClientDTO dto) {
-        Client client = clientRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Client introuvable avec l'id : " + id));
+        Client client = clientRepository.findById(id).orElse(null);
         clientMapper.updateEntityFromDTO(dto, client);
         return clientMapper.toDTO(clientRepository.save(client));
     }
@@ -45,5 +45,6 @@ public List<ClientDTO> listerClients(){
         Client client = clientRepository.findById(id).orElse(null);
         return clientMapper.toDTO(client);
     }
+
 
 }

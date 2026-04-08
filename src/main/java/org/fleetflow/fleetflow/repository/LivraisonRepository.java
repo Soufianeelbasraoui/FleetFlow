@@ -23,5 +23,4 @@ public interface LivraisonRepository extends JpaRepository<Livraison, Long> {
     @Query("SELECT l FROM Livraison l WHERE l.adresseDestination LIKE %:ville%")
     List<Livraison> findByVilleDestination(@Param("ville") String ville);
 
-
 }
