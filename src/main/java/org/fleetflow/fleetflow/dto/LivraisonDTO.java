@@ -28,4 +28,5 @@ public class LivraisonDTO {
     private Long chauffeurId;
     @NotBlank(message = "vehicule id est obigatoire")
     private Long vehiculeId;
+    private long total;
 }
