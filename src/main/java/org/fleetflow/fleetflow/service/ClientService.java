@@ -1,4 +1,4 @@
-// ClientService.java
+
 package org.fleetflow.fleetflow.service;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -38,16 +38,12 @@ public class ClientService {
         clientRepository.deleteById(id);
     }
 
-    public List<ClientDTO> listerClients() {
-        return clientRepository.findAll()
-                .stream()
-                .map(clientMapper::toDTO)
-                .collect(Collectors.toList());
-    }
-
+public List<ClientDTO> listerClients(){
+        return clientMapper.toDtoList(clientRepository.findAll());
+}
     public ClientDTO getClientById(Long id) {
-        Client client = clientRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Client introuvable avec l'id : " + id));
+        Client client = clientRepository.findById(id).orElse(null);
         return clientMapper.toDTO(client);
     }
+
 }

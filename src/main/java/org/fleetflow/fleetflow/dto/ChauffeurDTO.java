@@ -15,7 +15,6 @@ public class ChauffeurDTO {
 
     @NotBlank(message = "Le nom est obligatoire")
     private String nom;
-
     @NotBlank(message = "Le téléphone est obligatoire")
     private String telephone;
 
