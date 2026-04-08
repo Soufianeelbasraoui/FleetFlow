@@ -6,6 +6,7 @@ import org.fleetflow.fleetflow.dto.ChauffeurDTO;
 import org.fleetflow.fleetflow.entity.Chauffeur;
 import org.fleetflow.fleetflow.mapper.ChauffeurMapper;
 import org.fleetflow.fleetflow.repository.ChauffeurRepository;
+import org.fleetflow.fleetflow.repository.LivraisonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class ChauffeurService {
 
     private final ChauffeurRepository chauffeurRepository;
     private final ChauffeurMapper chauffeurMapper;
+    private final LivraisonRepository livraisonRepository;
 
     public ChauffeurDTO ajouterChauffeur(ChauffeurDTO dto) {
         Chauffeur chauffeur = chauffeurMapper.toEntity(dto);
@@ -37,22 +39,12 @@ public class ChauffeurService {
         chauffeurRepository.deleteById(id);
     }
 
-//    public List<ChauffeurDTO> listerChauffeurs1() {
-//        return chauffeurRepository.findAll()
-//                .stream()
-//                .map(chauffeurMapper::toDTO)
-//                .collect(Collectors.toList());
-//    }
     public List<ChauffeurDTO> listerChauffeurs(){
         return chauffeurMapper.toDtoList(chauffeurRepository.findAll());
     }
-//    public List<ChauffeurDTO> listerChauffeursDisponibles() {
-//        return chauffeurRepository.findByAvailableTrue()
-//                .stream()
-//                .map(chauffeurMapper::toDTO)
-//                .collect(Collectors.toList());
-//    }
-public List<ChauffeurDTO> listerChauffeursDisponibles(){
+
+  public List<ChauffeurDTO> listerChauffeursDisponibles(){
         return chauffeurMapper.toDtoList(chauffeurRepository.findByAvailableTrue());
 }
+
 }
