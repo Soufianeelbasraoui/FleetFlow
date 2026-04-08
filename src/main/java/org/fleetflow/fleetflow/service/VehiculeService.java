@@ -36,33 +36,14 @@ public class VehiculeService {
         vehiculeRepository.deleteById(id);
     }
 
-//    public List<VehiculeDTO> listerVehicules() {
-//        return vehiculeRepository.findAll()
-//                .stream()
-//                .map(vehiculeMapper::toDTO)
-//                .collect(Collectors.toList());
-//    }
     public List<VehiculeDTO>listerVehicules(){
         return vehiculeMapper.toDtoList(vehiculeRepository.findAll());
     }
-//
-//    public List<VehiculeDTO> listerParStatut(String statut) {
-//        return vehiculeRepository.findByStatutVehicule(statut)
-//                .stream()
-//                .map(vehiculeMapper::toDTO)
-//                .collect(Collectors.toList());
-//    }
+
 public List<VehiculeDTO> listerParStatut(String statut){
         return vehiculeMapper.toDtoList(vehiculeRepository.findByStatutVehicule(statut));
 }
 
-
-//    public List<VehiculeDTO> listerParCapaciteSuperieure(int capacite) {
-//        return vehiculeRepository.findByCapaciteGreaterThan(capacite)
-//                .stream()
-//                .map(vehiculeMapper::toDTO)
-//                .collect(Collectors.toList());
-//    }
 public List<VehiculeDTO> listerParCapaciteSuperieure(int capacite){
         return vehiculeMapper.toDtoList(vehiculeRepository.findByCapaciteGreaterThan(capacite));
 }

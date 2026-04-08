@@ -24,8 +24,7 @@ public class ChauffeurService {
     }
 
     public ChauffeurDTO modifierChauffeur(Long id, ChauffeurDTO dto) {
-        Chauffeur chauffeur = chauffeurRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Chauffeur introuvable avec l'id : " + id));
+        Chauffeur chauffeur = chauffeurRepository.findById(id).orElse(null);
         chauffeurMapper.updateEntityFromDTO(dto, chauffeur);
         return chauffeurMapper.toDTO(chauffeurRepository.save(chauffeur));
     }
@@ -36,22 +35,10 @@ public class ChauffeurService {
         }
         chauffeurRepository.deleteById(id);
     }
-
-//    public List<ChauffeurDTO> listerChauffeurs1() {
-//        return chauffeurRepository.findAll()
-//                .stream()
-//                .map(chauffeurMapper::toDTO)
-//                .collect(Collectors.toList());
-//    }
     public List<ChauffeurDTO> listerChauffeurs(){
         return chauffeurMapper.toDtoList(chauffeurRepository.findAll());
     }
-//    public List<ChauffeurDTO> listerChauffeursDisponibles() {
-//        return chauffeurRepository.findByAvailableTrue()
-//                .stream()
-//                .map(chauffeurMapper::toDTO)
-//                .collect(Collectors.toList());
-//    }
+
 public List<ChauffeurDTO> listerChauffeursDisponibles(){
         return chauffeurMapper.toDtoList(chauffeurRepository.findByAvailableTrue());
 }

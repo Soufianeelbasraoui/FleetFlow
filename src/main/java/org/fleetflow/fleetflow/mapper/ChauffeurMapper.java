@@ -13,8 +13,6 @@ public interface ChauffeurMapper {
      List<ChauffeurDTO> toDtoList(List<Chauffeur> chauffeurs);
     Chauffeur toEntity(ChauffeurDTO dto);
 
-    List<ChauffeurDTO> toDTOs(List<Chauffeur> chauffeur);
-
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateEntityFromDTO(ChauffeurDTO dto, @MappingTarget Chauffeur chauffeur);
 }
