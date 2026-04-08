@@ -22,19 +22,19 @@ public class ChauffeurController {
 
     @PostMapping
     @Operation(summary = "Ajouter un chauffeur")
-    public ResponseEntity<ChauffeurDTO> ajouter(@Valid @RequestBody ChauffeurDTO dto) {
+    public ResponseEntity<ChauffeurDTO> ajouter( @Valid @RequestBody ChauffeurDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(chauffeurService.ajouterChauffeur(dto));
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Modifier un chauffeur")
-    public ResponseEntity<ChauffeurDTO> modifier(@Valid @PathVariable Long id, @RequestBody ChauffeurDTO dto) {
+    public ResponseEntity<ChauffeurDTO> modifier( @Valid @PathVariable Long id, @RequestBody ChauffeurDTO dto) {
         return ResponseEntity.ok(chauffeurService.modifierChauffeur(id, dto));
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Supprimer un chauffeur")
-    public ResponseEntity<Void> supprimer(@PathVariable Long id) {
+    public ResponseEntity<Void> supprimer( @Valid @PathVariable Long id) {
         chauffeurService.supprimerChauffeur(id);
         return ResponseEntity.noContent().build();
     }

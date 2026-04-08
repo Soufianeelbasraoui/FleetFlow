@@ -10,7 +10,7 @@ import java.util.List;
 public interface ChauffeurMapper {
 
     ChauffeurDTO toDTO(Chauffeur chauffeur);
-
+     List<ChauffeurDTO> toDtoList(List<Chauffeur> chauffeurs);
     Chauffeur toEntity(ChauffeurDTO dto);
 
     List<ChauffeurDTO> toDTOs(List<Chauffeur> chauffeur);

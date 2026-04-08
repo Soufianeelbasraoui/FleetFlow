@@ -6,11 +6,14 @@ import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
+
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface ClientMapper {
 
     ClientDTO toDTO(Client client);
-
+  List<ClientDTO> toDtoList(List<Client> clients);
     Client toEntity(ClientDTO dto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

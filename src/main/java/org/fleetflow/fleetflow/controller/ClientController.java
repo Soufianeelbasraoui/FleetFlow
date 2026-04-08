@@ -23,7 +23,7 @@ public class ClientController {
 
     @PostMapping
     @Operation(summary = "Ajouter un client")
-    public ResponseEntity<ClientDTO> ajouter(@Valid  @RequestBody ClientDTO dto) {
+    public ResponseEntity<ClientDTO> ajouter(@Valid @RequestBody ClientDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(clientService.ajouterClient(dto));
     }
 

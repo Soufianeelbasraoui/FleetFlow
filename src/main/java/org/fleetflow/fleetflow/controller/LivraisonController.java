@@ -25,7 +25,7 @@ public class LivraisonController {
 
     @PostMapping
     @Operation(summary = "Créer une livraison")
-    public ResponseEntity<LivraisonDTO> creer(@Valid  @RequestBody LivraisonDTO dto) {
+    public ResponseEntity<LivraisonDTO> creer(@Valid @RequestBody LivraisonDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(livraisonService.creerLivraison(dto));
     }
 
@@ -42,6 +42,7 @@ public class LivraisonController {
     @PatchMapping("/{id}/statut")
     @Operation(summary = "Changer le statut d'une livraison")
     public ResponseEntity<LivraisonDTO> changerStatut(
+            @Valid
             @PathVariable Long id,
             @RequestParam String statut) {
         return ResponseEntity.ok(livraisonService.changerStatut(id, statut));

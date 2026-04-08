@@ -2,12 +2,13 @@ package org.fleetflow.fleetflow.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.time.LocalDate;
 
-@Data
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class LivraisonDTO {
@@ -24,9 +25,9 @@ public class LivraisonDTO {
     private String statut;
     @NotNull(message = "id client est obligatoire")
     private Long clientId;
-    @NotBlank(message = "chauffeur id obligatoire")
+    @NotNull(message = "chauffeur id obligatoire")
     private Long chauffeurId;
-    @NotBlank(message = "vehicule id est obigatoire")
+    @NotNull(message = "vehicule id est obigatoire")
     private Long vehiculeId;
     private long total;
 }
