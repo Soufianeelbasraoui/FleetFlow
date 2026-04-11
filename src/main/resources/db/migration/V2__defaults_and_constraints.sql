@@ -7,7 +7,6 @@ ALTER TABLE vehicule
 ALTER TABLE livraison
     ALTER COLUMN statut SET DEFAULT 'PENDING';
 
-
 ALTER TABLE vehicule
     ADD CONSTRAINT chk_vehicule_capacite_positive
         CHECK (capacite > 0);
