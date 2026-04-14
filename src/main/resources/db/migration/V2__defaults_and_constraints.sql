@@ -33,4 +33,3 @@ ALTER TABLE livraison
             ON DELETE SET NULL
             ON UPDATE CASCADE;
 
-
