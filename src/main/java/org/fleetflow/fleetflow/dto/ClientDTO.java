@@ -13,6 +13,7 @@ public class ClientDTO {
 
     @NotBlank(message = "Le nom est obligatoire")
     private String nom;
+
     @Email(message = "Email invalide")
     private String email;
 

@@ -29,5 +29,6 @@ public class LivraisonDTO {
     private Long chauffeurId;
     @NotNull(message = "vehicule id est obigatoire")
     private Long vehiculeId;
-    private long total;
+
+
 }

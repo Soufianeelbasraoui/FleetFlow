@@ -3,6 +3,7 @@ package org.fleetflow.fleetflow.service;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.fleetflow.fleetflow.dto.ClientDTO;
+import org.fleetflow.fleetflow.dto.LivraisonDTO;
 import org.fleetflow.fleetflow.entity.Client;
 import org.fleetflow.fleetflow.mapper.ClientMapper;
 import org.fleetflow.fleetflow.repository.ClientRepository;
@@ -39,7 +40,7 @@ public class ClientService {
     }
 
 public List<ClientDTO> listerClients(){
-        return clientMapper.toDtoList(clientRepository.findAll());
+       return clientMapper.toDtoList(clientRepository.findAll());
 }
     public ClientDTO getClientById(Long id) {
         Client client = clientRepository.findById(id).orElse(null);
