@@ -16,7 +16,7 @@ public class ClientDTO {
 
     @Email(message = "Email invalide")
     private String email;
-
+    @NotBlank(message = "Le numéro de téléphone est obligatoire")
     private String telephone;
 
     @NotBlank(message = "Ville est obligatoire")
