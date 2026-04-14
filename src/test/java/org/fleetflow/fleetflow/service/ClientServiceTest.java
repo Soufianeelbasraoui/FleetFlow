@@ -39,4 +39,18 @@ class ClientServiceTest {
         assertEquals("soufiane",result.getNom());
 
     }
+
+    @Test
+    void ajouterClient_emailExiste() {
+        ClientDTO clientDTO = new ClientDTO("soufiane", "test@mail.com", "060000", "Casa");
+
+        Mockito.when(clientRepository.existsByEmail("test@mail.com")).thenReturn(true);
+
+        RuntimeException exception=assertThrows(RuntimeException.class,()->{
+          clientService.ajouterClient(clientDTO);
+         });
+        assertEquals("email deja existe", exception.getMessage());
+
+        Mockito.verify(clientRepository,Mockito.never()).save(Mockito.any());
+    }
 }
