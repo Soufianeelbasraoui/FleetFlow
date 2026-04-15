@@ -40,7 +40,7 @@ public class ClientService {
     }
 
 public List<ClientDTO> listerClients(){
-       return clientMapper.toDtoList(clientRepository.findAll());
+  return clientMapper.toDtoList(clientRepository.findAll());
 }
     public ClientDTO getClientById(Long id) {
         Client client = clientRepository.findById(id).orElse(null);

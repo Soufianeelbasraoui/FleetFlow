@@ -12,8 +12,7 @@ import lombok.NoArgsConstructor;
 public class ClientDTO {
 
     @NotBlank(message = "Le nom est obligatoire")
-    private Long total;
-    private Long Id;
+
     private String nom;
     @Email(message = "Email invalide")
     private String email;
@@ -22,4 +21,5 @@ public class ClientDTO {
 
     @NotBlank(message = "Ville est obligatoire")
     private String ville;
+
 }
