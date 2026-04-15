@@ -11,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "chauffeur")
 public class Chauffeur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,5 +22,5 @@ public class Chauffeur {
     private Boolean available;
 
     @OneToMany(mappedBy = "chauffeur")
-    private List<Livraison> liveries;
+    private List<Livraison> livraisons;
 }

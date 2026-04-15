@@ -12,14 +12,13 @@ import lombok.NoArgsConstructor;
 public class ClientDTO {
 
     @NotBlank(message = "Le nom est obligatoire")
-
     private String nom;
+
     @Email(message = "Email invalide")
     private String email;
-
+    @NotBlank(message = "Le numéro de téléphone est obligatoire")
     private String telephone;
 
     @NotBlank(message = "Ville est obligatoire")
     private String ville;
-
 }

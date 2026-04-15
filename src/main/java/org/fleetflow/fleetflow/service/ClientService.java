@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 @Service
 @RequiredArgsConstructor
 public class ClientService {
@@ -22,6 +21,11 @@ public class ClientService {
     private  final LivraisonRepository livraisonRepository;
 
     public ClientDTO ajouterClient(ClientDTO dto) {
+
+        if (clientRepository.existsByEmail(dto.getEmail())){
+            throw new RuntimeException("email deja existe");
+        }
+
         Client client = clientMapper.toEntity(dto);
         return clientMapper.toDTO(clientRepository.save(client));
     }
@@ -46,6 +50,5 @@ public List<ClientDTO> listerClients(){
         Client client = clientRepository.findById(id).orElse(null);
         return clientMapper.toDTO(client);
     }
-
 
 }
