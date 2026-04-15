@@ -12,11 +12,6 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionsHandler {
-    private final View error;
-    public GlobalExceptionsHandler(View error) {
-        this.error = error;
-    }
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidation(
             MethodArgumentNotValidException ex
