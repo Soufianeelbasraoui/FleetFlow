@@ -1,15 +1,12 @@
 package org.fleetflow.fleetflow.service;
 
 import lombok.RequiredArgsConstructor;
-import org.fleetflow.fleetflow.dto.ClientDTO;
 import org.fleetflow.fleetflow.dto.LivraisonDTO;
 import org.fleetflow.fleetflow.entity.Chauffeur;
 import org.fleetflow.fleetflow.entity.Livraison;
 import org.fleetflow.fleetflow.entity.Vehicule;
-import org.fleetflow.fleetflow.mapper.ClientMapper;
 import org.fleetflow.fleetflow.mapper.LivraisonMapper;
 import org.fleetflow.fleetflow.repository.ChauffeurRepository;
-import org.fleetflow.fleetflow.repository.ClientRepository;
 import org.fleetflow.fleetflow.repository.LivraisonRepository;
 import org.fleetflow.fleetflow.repository.VehiculeRepository;
 import org.springframework.stereotype.Service;
@@ -26,8 +23,6 @@ public class LivraisonService {
     private final LivraisonMapper livraisonMapper;
     private final ChauffeurRepository chauffeurRepository;
     private final VehiculeRepository vehiculeRepository;
-    private final ClientRepository clientRepository;
-    private final ClientMapper clientMapper;
 
     public LivraisonDTO creerLivraison(LivraisonDTO dto) {
         Livraison livraison = livraisonMapper.toEntity(dto);
@@ -69,5 +64,4 @@ public List<LivraisonDTO> listerParStatut(String statut){
     public List<LivraisonDTO> listerParVilleDestination(String ville){
       return livraisonMapper.toDtoList(livraisonRepository.findByVilleDestination(ville));
     }
-
 }

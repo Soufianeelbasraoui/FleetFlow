@@ -3,7 +3,6 @@ package org.fleetflow.fleetflow.repository;
 import org.fleetflow.fleetflow.entity.Client;
 import org.fleetflow.fleetflow.entity.Livraison;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.NativeQuery;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -25,5 +24,4 @@ public interface LivraisonRepository extends JpaRepository<Livraison, Long> {
 
     @Query("SELECT l FROM Livraison l WHERE l.adresseDestination LIKE %:ville%")
     List<Livraison> findByVilleDestination(@Param("ville") String ville);
-
 }
