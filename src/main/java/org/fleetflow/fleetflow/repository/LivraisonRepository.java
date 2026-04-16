@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -23,6 +24,4 @@ public interface LivraisonRepository extends JpaRepository<Livraison, Long> {
 
     @Query("SELECT l FROM Livraison l WHERE l.adresseDestination LIKE %:ville%")
     List<Livraison> findByVilleDestination(@Param("ville") String ville);
-
-    Long countLivraisonByClient(Long Id);
 }

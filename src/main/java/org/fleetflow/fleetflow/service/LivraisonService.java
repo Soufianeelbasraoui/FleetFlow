@@ -12,6 +12,7 @@ import org.fleetflow.fleetflow.repository.VehiculeRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -63,6 +64,4 @@ public List<LivraisonDTO> listerParStatut(String statut){
     public List<LivraisonDTO> listerParVilleDestination(String ville){
       return livraisonMapper.toDtoList(livraisonRepository.findByVilleDestination(ville));
     }
-
-
 }

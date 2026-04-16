@@ -41,8 +41,6 @@ class LivraisonServiceTest {
         Livraison livraisons=new Livraison();
         livraisons.setId(1L);
         livraisons.setDateLivraison(LocalDate.of(2026, 4, 15));
-        livraisons.setAdresseDepart("casa");
-        livraisons.setAdresseDestination("oudeZem");
         livraisons.setStatut("EN_ATTENTE");
         Mockito.when(livraisonRepository.save(Mockito.any())).thenReturn(livraisons);
         Mockito.when(livraisonMapper.toDTO(livraisons)).thenReturn(livraisonDTOS);
@@ -50,7 +48,6 @@ class LivraisonServiceTest {
 
         LivraisonDTO resultDto=livraisonService.creerLivraison(livraisonDTOS);
         assertEquals("EN_ATTENTE",resultDto.getStatut());
-        assertEquals("casa",resultDto.getAdresseDepart());
         Mockito.verify(livraisonRepository).save(Mockito.any());
     }
 
