@@ -5,10 +5,11 @@ import lombok.*;
 
 import java.util.List;
 @Entity
+
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Table(name = "vehicule")
 public class Vehicule {
