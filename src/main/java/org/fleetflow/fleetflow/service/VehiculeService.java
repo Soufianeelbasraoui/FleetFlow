@@ -24,7 +24,10 @@ public class VehiculeService {
     }
 
     public VehiculeDTO modifierVehicule(Long id, VehiculeDTO dto) {
-        Vehicule vehicule = vehiculeRepository.findById(id).orElse(null);
+        Vehicule vehicule = vehiculeRepository.findById(id)
+                .orElseThrow(() ->
+                        new EntityNotFoundException("Véhicule introuvable avec l'id : " + id)
+                );
         vehiculeMapper.updateEntityFromDTO(dto, vehicule);
         return vehiculeMapper.toDTO(vehiculeRepository.save(vehicule));
     }
