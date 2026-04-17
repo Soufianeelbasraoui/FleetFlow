@@ -44,5 +44,4 @@ public class ChauffeurService {
 public List<ChauffeurDTO> listerChauffeursDisponibles(){
         return chauffeurMapper.toDtoList(chauffeurRepository.findByAvailableTrue());
 }
-
 }

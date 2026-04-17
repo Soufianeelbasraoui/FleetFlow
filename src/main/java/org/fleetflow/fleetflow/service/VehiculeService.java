@@ -51,5 +51,4 @@ public List<VehiculeDTO> listerParStatut(String statut){
 public List<VehiculeDTO> listerParCapaciteSuperieure(int capacite){
         return vehiculeMapper.toDtoList(vehiculeRepository.findByCapaciteGreaterThan(capacite));
 }
-
 }
