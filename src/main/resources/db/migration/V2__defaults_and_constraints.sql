@@ -1,11 +1,11 @@
-ALTER TABLE chauffeur
-    MODIFY available TINYINT(1) DEFAULT 1;
+ALTER TABLE chauffeur MODIFY COLUMN available BOOLEAN DEFAULT TRUE;
+ALTER TABLE vehicule MODIFY COLUMN statut_vehicule VARCHAR(255) DEFAULT 'AVAILABLE';
+
+ALTER TABLE livraison MODIFY COLUMN statut VARCHAR(255) DEFAULT 'PENDING';
 
 ALTER TABLE vehicule
-    MODIFY statut_vehicule VARCHAR(255) DEFAULT 'AVAILABLE';
+    ADD CONSTRAINT chk_vehicule_capacite CHECK (capacite > 0);
 
-ALTER TABLE livraison
-    MODIFY statut VARCHAR(255) DEFAULT 'PENDING';
 
 ALTER TABLE livraison
     ADD CONSTRAINT fk_livraison_client

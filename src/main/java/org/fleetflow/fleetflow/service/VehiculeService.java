@@ -32,6 +32,7 @@ public class VehiculeService {
         return vehiculeMapper.toDTO(vehiculeRepository.save(vehicule));
     }
 
+
     public void supprimerVehicule(Long id) {
         if (!vehiculeRepository.existsById(id)) {
             throw new EntityNotFoundException("Véhicule introuvable avec l'id : " + id);
