@@ -32,6 +32,7 @@ public class VehiculeController {
         return ResponseEntity.ok(vehiculeService.modifierVehicule(id, dto));
     }
 
+
     @DeleteMapping("/{id}")
     @Operation(summary = "Supprimer un véhicule")
     public ResponseEntity<Void> supprimer(@PathVariable Long id) {
