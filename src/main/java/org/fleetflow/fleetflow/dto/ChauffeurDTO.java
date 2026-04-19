@@ -22,4 +22,5 @@ public class ChauffeurDTO {
 
     @NotNull(message = "La disponibilité est obligatoire")
     private Boolean available;
+
 }
