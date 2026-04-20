@@ -25,6 +25,7 @@ public class ChauffeurService {
         return chauffeurMapper.toDTO(chauffeurRepository.save(chauffeur));
     }
 
+
     public ChauffeurDTO modifierChauffeur(Long id, ChauffeurDTO dto) {
         Chauffeur chauffeur = chauffeurRepository.findById(id).orElse(null);
         chauffeurMapper.updateEntityFromDTO(dto, chauffeur);
@@ -37,6 +38,7 @@ public class ChauffeurService {
         }
         chauffeurRepository.deleteById(id);
     }
+
     public List<ChauffeurDTO> listerChauffeurs(){
         return chauffeurMapper.toDtoList(chauffeurRepository.findAll());
     }
@@ -44,4 +46,5 @@ public class ChauffeurService {
 public List<ChauffeurDTO> listerChauffeursDisponibles(){
         return chauffeurMapper.toDtoList(chauffeurRepository.findByAvailableTrue());
 }
+
 }
