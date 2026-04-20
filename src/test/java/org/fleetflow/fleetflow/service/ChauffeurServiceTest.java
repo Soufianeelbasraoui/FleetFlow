@@ -51,6 +51,22 @@ class ChauffeurServiceTest {
     }
 
     @Test
+    void testAjouterChauffeur(){
+
+        when(chauffeurMapper.toEntity(chauffeurDTO)).thenReturn(chauffeur);
+        when(chauffeurRepository.save(chauffeur)).thenReturn(chauffeur);
+        when(chauffeurMapper.toDTO(chauffeur)).thenReturn(chauffeurDTO);
+
+        ChauffeurDTO result = chauffeurService.ajouterChauffeur(chauffeurDTO);
+
+        assertNotNull(result);
+
+        verify(chauffeurMapper).toEntity(chauffeurDTO);
+        verify(chauffeurRepository).save(chauffeur);
+        verify(chauffeurMapper).toDTO(chauffeur);
+    }
+
+    @Test
     void testListerChauffeursDisponibles() {
 
         List<Chauffeur> chauffeurs = List.of(chauffeur);
