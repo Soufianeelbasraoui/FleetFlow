@@ -11,9 +11,11 @@ name: fleetflow CI with Maven
 on:
   push:
     branches:
-      - main
-      - youssef
 
+      -main
+      -soufiane
+      -youssef
+ 
   pull_request:
     branches: [ "main" ]
 
